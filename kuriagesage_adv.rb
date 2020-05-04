@@ -43,7 +43,6 @@ loop do
   next unless ((a + b) < 10) && ((c + d) < 10)
 
   arr.push({ shiki: "#{a}#{c} + #{b}#{d}", ans: Integer("#{a}#{c}") + Integer("#{b}#{d}") })
-  pp arr
   idx += 1
   break if idx == (num / 2) * 0.2
 end
