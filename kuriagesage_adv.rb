@@ -22,15 +22,30 @@ arr = []
 idx = 0
 # 繰り上がりの計算式作成
 loop do
-  a = rand(10)
-  b = rand(10)
-  c = rand(10)
-  d = rand(10)
+  a = rand(1..9)
+  b = rand(1..9)
+  c = rand(0..9)
+  d = rand(0..9)
   next unless ((a + b) >= 10) && ((c + d) >= 10)
 
   arr.push({ shiki: "#{a}#{c} + #{b}#{d}", ans: Integer("#{a}#{c}") + Integer("#{b}#{d}") })
   idx += 1
-  break if idx == (num / 2)
+  break if idx == (num / 2) * 0.8
+end
+
+idx = 0
+# 簡単な問題を少し入れる
+loop do
+  a = rand(1..9)
+  b = rand(1..9)
+  c = rand(0..9)
+  d = rand(0..9)
+  next unless ((a + b) < 10) && ((c + d) < 10)
+
+  arr.push({ shiki: "#{a}#{c} + #{b}#{d}", ans: Integer("#{a}#{c}") + Integer("#{b}#{d}") })
+  pp arr
+  idx += 1
+  break if idx == (num / 2) * 0.2
 end
 
 idx = 0
@@ -44,7 +59,21 @@ loop do
 
   arr.push({ shiki: "#{a}#{c} - #{b}#{d}", ans: Integer("#{a}#{c}") - Integer("#{b}#{d}") })
   idx += 1
-  break if idx == (num / 2)
+  break if idx == (num / 2) * 0.8
+end
+
+idx = 0
+# 簡単な問題を少し入れる
+loop do
+  a = rand(1..9)
+  b = rand(1..9)
+  c = rand(0..9)
+  d = rand(0..9)
+  next unless (a > b) && (c > d)
+
+  arr.push({ shiki: "#{a}#{c} - #{b}#{d}", ans: Integer("#{a}#{c}") - Integer("#{b}#{d}") })
+  idx += 1
+  break if idx == (num / 2) * 0.2
 end
 
 arr.shuffle! if params.key?(:shuffle)
