@@ -25,7 +25,7 @@ end
 
 if (!params.key?(:questions) && !params.key?(:answers)) || params.key?(:questions)
   puts "問題"
-  arr.each_with_index {|o,i| puts "#{i+1}. #{o[:shiki]}"}
+  arr.each_with_index {|o,i| puts "#{i+1}.   #{o[:shiki]}"}
 end
 
 puts
