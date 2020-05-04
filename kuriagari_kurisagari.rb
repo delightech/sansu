@@ -9,7 +9,14 @@ opt = OptionParser.new
 opt.on('-q', 'questions(optional)') { |v| params[:questions] = v }
 opt.on('-a', 'answers(optional)') { |v| params[:answers] = v }
 opt.on('-s', 'shuffle(optional)') { |v| params[:shuffle] = v }
+opt.on('-n VALUE', 'number(optional)') { |v| params[:number] = v }
 opt.parse!(ARGV)
+
+# 問題数の指定
+num = params[:number].to_i if params.key?(:number) && params[:number] != ""
+
+# デフォルト出題数10問
+num ||= 10
 
 arr = []
 idx = 0
@@ -23,7 +30,7 @@ while true
 
   arr.push({ shiki: "#{a}#{c} + #{b}#{d}", ans: Integer("#{a}#{c}") + Integer("#{b}#{d}") })
   idx += 1
-  break if idx == 50
+  break if idx == (num / 2)
 end
 
 idx = 0
@@ -37,7 +44,7 @@ loop do
 
   arr.push({ shiki: "#{a}#{c} - #{b}#{d}", ans: Integer("#{a}#{c}") - Integer("#{b}#{d}") })
   idx += 1
-  break if idx == 50
+  break if idx == (num / 2)
 end
 
 arr.shuffle! if params.key?(:shuffle)
