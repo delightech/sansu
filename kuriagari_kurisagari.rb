@@ -13,7 +13,7 @@ opt.on('-n VALUE', 'number(optional)') { |v| params[:number] = v }
 opt.parse!(ARGV)
 
 # 問題数の指定
-num = params[:number].to_i if params.key?(:number) && params[:number] != ""
+num = params[:number].to_i if params.key?(:number) && params[:number] != ''
 
 # デフォルト出題数10問
 num ||= 10
