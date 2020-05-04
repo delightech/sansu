@@ -6,10 +6,12 @@ params = {}
 opt = OptionParser.new
 opt.on('-q', 'questions(optional)') { |v| params[:questions] = v }
 opt.on('-a', 'answers(optional)') { |v| params[:answers] = v }
+opt.on('-s', 'shuffle(optional)') { |v| params[:shuffle] = v }
 opt.parse!(ARGV)
 
 arr = []
 idx = 0
+# 繰り上がりの計算式作成
 while true
   a = rand(10);
   b = rand(10);
@@ -19,9 +21,26 @@ while true
     shiki = "#{a}#{c} + #{b}#{d}"
     arr.push({ shiki: shiki, ans: Integer("#{a}#{c}") + Integer("#{b}#{d}") })
     idx += 1
-    break if idx == 100
+    break if idx == 50
   end
 end
+
+idx = 0
+# 繰り下がりの計算式作成
+while true
+  a = rand(1..9);
+  b = rand(1..9);
+  c = rand(0..9);
+  d = rand(0..9);
+  if (a > b) && (c < d)
+    shiki = "#{a}#{c} - #{b}#{d}"
+    arr.push({ shiki: shiki, ans: Integer("#{a}#{c}") - Integer("#{b}#{d}") })
+    idx += 1
+    break if idx == 50
+  end
+end
+
+arr.shuffle! if params.key?(:shuffle)
 
 if (!params.key?(:questions) && !params.key?(:answers)) || params.key?(:questions)
   puts "問題"
