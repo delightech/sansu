@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 # 二桁の繰り上がり・繰り下がりの計算（小１〜小２用）の練習問題作成スクリプト
+# 繰り上がり、繰り下がりがない簡単な問題を混ぜ込んでいる
+
 require 'optparse'
 
 # commnad line option
