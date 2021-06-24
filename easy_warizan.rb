@@ -30,9 +30,9 @@ end
 idx = 1
 qa.each do |q,a|
   if params[:answers]
-    puts"#{idx}. #{q} = #{a}"
+    puts"#{idx}.  #{q} = #{a}"
   else
-    puts"#{idx}. #{q}"
+    puts"#{idx}.  #{q}"
   end
   idx += 1
 end
