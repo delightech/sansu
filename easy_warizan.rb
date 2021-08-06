@@ -23,7 +23,7 @@ while qa.size < num
   b = rand(10)
 
   b = 1 if b == 0
-  qa["#{a * b} / #{b}"] = a
+  qa["#{a * b} ÷ #{b}"] = a
 end
 
 

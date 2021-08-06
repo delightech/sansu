@@ -84,8 +84,6 @@ if (!params.key?(:questions) && !params.key?(:answers)) || params.key?(:question
   arr.each_with_index { |o, i| puts "#{i + 1}.   #{o[:shiki]}" }
 end
 
-puts
-
 if (!params.key?(:questions) && !params.key?(:answers)) || params.key?(:answers)
   puts '答え'
   arr.each_with_index { |o, i| puts "#{i + 1}. #{o[:ans]}" }
